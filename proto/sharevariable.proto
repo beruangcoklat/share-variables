@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package sharevariables;
+
+option go_package = "sharevariablespb";
+
+message ShareRequest{
+    string key = 1;
+    string value = 2;
+}
+
+message ShareResponse{
+    string key = 1;
+    string value = 2;
+}
+
+service ShareService{
+    rpc UpdateVariable(stream ShareRequest) returns (stream ShareResponse) {};
+}
